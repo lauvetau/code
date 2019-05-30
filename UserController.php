@@ -24,7 +24,7 @@ class UserController extends _BaseController
     {   
         $model = new User;
 
-        if ($model->load(\Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post())) {
             $model->generatePassword(5);
             if ($model->save()) {
                 return $this->redirect(['index']);
@@ -40,7 +40,7 @@ class UserController extends _BaseController
     {
         $model = User::findOne($id);
 
-        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         }
 
